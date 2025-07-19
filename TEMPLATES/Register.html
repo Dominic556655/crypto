@@ -1,0 +1,60 @@
+{% load static %}
+
+
+<h1 style="text-align: center; padding-top: 70px; margin-right:80;" >Sign up Below:</h1>
+
+<style>
+
+        body{
+    background: url('{% static "img/hero-bg.png" %}') no-repeat center center fixed;
+    background-size: cover;
+    background-attachment: scroll;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    }
+    h3{
+        color: red;
+        text-align: center
+    }
+</style>
+
+{% for message in messages %}
+<h3>{{message}}</h3>
+{% endfor %}
+
+<div style="display: flex; justify-content:center; margin-right: 80px; height: 80vh; align-items:flex-start; ">
+    <form method="POST" action="Register">
+    {% csrf_token %}
+    <p>Username:</p>
+    <input type="text" name="username" />
+    <p>Email:</p>
+    <input type="email" name="email" />
+    <p>Password:</p>
+    <input type="password" name="password" id="password" required oninput="showConfirm()">
+
+    <div id="confirmDiv" style="display: none">
+        <p>Repeat Password</p>
+    <input type="password" name="password2"></div>
+    
+    <br>
+
+    <input type="submit" />
+
+    
+<script>
+    function showConfirm() {
+        const passwordInput = document.getElementById("password");
+        const confirmDiv = document.getElementById("confirmDiv");
+
+        confirmDiv.style.display = passwordInput.value.length > 0 ? "block" : "none";
+    }
+</script>
+
+    </form>
+</div>
