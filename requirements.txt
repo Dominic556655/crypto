@@ -45,7 +45,6 @@ platformdirs==4.3.6
 prompt_toolkit==3.0.51
 psycopg==3.2.6
 psycopg2-binary==2.9.10
-PyAudio==0.2.14
 pycparser==2.22
 PyJWT==2.9.0
 PySocks==1.7.1
